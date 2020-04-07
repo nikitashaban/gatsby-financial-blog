@@ -24,7 +24,7 @@ const IndexPage = () => {
       }
     }
   `)
-  console.log(data)
+
   const cardList = data.allContentfulBlogArticle.edges.map(card => (
     <MediaCard
       key={card.node.slug}
