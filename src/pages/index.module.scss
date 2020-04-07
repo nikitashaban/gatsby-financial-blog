@@ -1,12 +1,18 @@
 .articlesContainer {
+  display: flex;
+  width: 100%;
+
+}
+
+.articles-list {
+  width: 60%;
+
+  nav {
     display: flex;
-    width: 100%;
+    justify-content: center;
+  }
+}
 
-    &>div:first-child {
-        width: 60%;
-    }
-
-    &>div:nth-child(2) {
-        width: 30%;
-    }
+.side-content {
+  width: 40%;
 }

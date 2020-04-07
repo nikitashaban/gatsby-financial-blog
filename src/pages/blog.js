@@ -3,7 +3,7 @@ import Layout from "../components/layout/layout"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import styles from "./blog.module.scss"
 
-const Blog = () => {
+const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
@@ -35,4 +35,4 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default BlogPage

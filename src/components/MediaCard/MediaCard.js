@@ -1,4 +1,5 @@
 import React from "react"
+import { navigate } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
@@ -10,24 +11,25 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles({
   card: {
-    margin: "5px 0",
+    margin: "0 0 15px 0",
   },
   media: {
     height: 140,
   },
 })
 
-export default function MediaCard({ title, publishedDate, imgUrl }) {
+export default function MediaCard({ title, publishedDate, imgUrl, slug }) {
   const classes = useStyles()
 
   return (
     <Card className={classes.card}>
-      <CardActionArea>
+      <CardActionArea onClick={() => navigate(`project/${slug}`)}>
         <CardMedia
           className={classes.media}
           image={imgUrl}
           title="Contemplative Reptile"
         />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
@@ -37,9 +39,14 @@ export default function MediaCard({ title, publishedDate, imgUrl }) {
           </Typography>
         </CardContent>
       </CardActionArea>
+
       <CardActions>
-        <Button size="small" color="primary">
-          Learn More
+        <Button
+          onClick={() => navigate(`project/${slug}`)}
+          size="small"
+          color="primary"
+        >
+          Подробнее
         </Button>
       </CardActions>
     </Card>

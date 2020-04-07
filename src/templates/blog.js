@@ -3,17 +3,6 @@ import Layout from "../components/layout/layout"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-// export const query = graphql`
-//   query($slug: String!) {
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       frontmatter {
-//         title
-//         date
-//       }
-//       html
-//     }
-//   }
-// `
 export const query = graphql`
   query($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
@@ -25,7 +14,7 @@ export const query = graphql`
     }
   }
 `
-const BlogPage = ({ data }) => {
+const BlogTemplate = ({ data }) => {
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
@@ -44,4 +33,4 @@ const BlogPage = ({ data }) => {
   )
 }
 
-export default BlogPage
+export default BlogTemplate

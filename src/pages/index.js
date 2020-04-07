@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
+import Pagination from "@material-ui/lab/Pagination"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import MediaCard from "../components/MediaCard/MediaCard"
@@ -31,6 +32,7 @@ const IndexPage = () => {
       title={card.node.title}
       publishedDate={card.node.publishedDate}
       imgUrl={card.node.image.file.url}
+      slug={card.node.slug}
     />
   ))
   return (
@@ -42,8 +44,11 @@ const IndexPage = () => {
         Need a developer ? <Link to="/about">Contact me</Link>
       </p>
       <div className={styles.articlesContainer}>
-        <div>{cardList}</div>
-        <div></div>
+        <div className={styles.articlesList}>
+          {cardList}
+          <Pagination count={10} color="primary" />
+        </div>
+        <div className={styles.sideContent}></div>
       </div>
     </Layout>
   )
