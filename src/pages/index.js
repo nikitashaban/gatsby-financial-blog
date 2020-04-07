@@ -27,6 +27,7 @@ const IndexPage = () => {
   console.log(data)
   const cardList = data.allContentfulBlogArticle.edges.map(card => (
     <MediaCard
+      key={card.node.slug}
       title={card.node.title}
       publishedDate={card.node.publishedDate}
       imgUrl={card.node.image.file.url}
