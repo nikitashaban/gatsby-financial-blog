@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import Pagination from "@material-ui/lab/Pagination"
+import { Pagination } from "@material-ui/lab"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import MediaCard from "../components/MediaCard/MediaCard"
@@ -35,6 +35,12 @@ const IndexPage = () => {
       slug={card.node.slug}
     />
   ))
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const postPerPage = 2
+  const indexOfLastPost = currentPage * postPerPage
+  const indeOfFirstPost = indexOfLastPost - postPerPage
+  const currentPosts = cardList.slice(indeOfFirstPost, indexOfLastPost)
   return (
     <Layout>
       <SEO title="Home" />
@@ -45,8 +51,12 @@ const IndexPage = () => {
       </p>
       <div className={styles.articlesContainer}>
         <div className={styles.articlesList}>
-          {cardList}
-          <Pagination count={10} color="primary" />
+          {currentPosts}
+          <Pagination
+            onChange={(event, page) => setCurrentPage(page)}
+            count={Math.ceil(cardList.length / postPerPage)}
+            color="primary"
+          />
         </div>
         <div className={styles.sideContent}></div>
       </div>

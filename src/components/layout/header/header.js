@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery, navigate } from "gatsby"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
@@ -87,12 +87,22 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/`)}
+            className={classes.title}
+            variant="h6"
+            noWrap
+          >
             {data.site.siteMetadata.title}
           </Typography>
           <ul className={styles.linkList}>
             <li>
-              <Link activeClassName={styles.linkActive} to="/">
+              <Link
+                className={styles.btn2}
+                activeClassName={styles.linkActive}
+                to="/"
+              >
                 Main
               </Link>
             </li>

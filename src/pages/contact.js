@@ -6,12 +6,7 @@ const ContactPage = () => {
     <Layout>
       <h1>Contacts</h1>
       <p>Contact details</p>
-      <p>
-        The best way to reach me{" "}
-        <a href="https://distant.ieml.ru/" target="_blank">
-          click
-        </a>
-      </p>
+      <p>The best way to reach me </p>
     </Layout>
   )
 }

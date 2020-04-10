@@ -27,6 +27,7 @@ const ProjectTemplate = ({ data }) => {
       <h1>{data.contentfulBlogArticle.title}</h1>
       <p>{data.contentfulBlogArticle.publishedDate}</p>
       <img
+        style={{ maxHeight: 400 }}
         src={data.contentfulBlogArticle.image.file.url}
         alt={data.contentfulBlogArticle.title}
       />
